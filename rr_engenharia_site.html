@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RR Engenharia Elétrica LTDA - Soluções Completas em Engenharia Elétrica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="%23ffffff" fill-opacity="0.1" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"></path></svg>') repeat-x;
+            opacity: 0.3;
+            animation: wave 20s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { background-position: 0 0; }
+            100% { background-position: 1200px 0; }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ffd700;
+            color: #1e3c72;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .section {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            margin: 1rem auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #667eea;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .stats {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 2rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        .diferencial {
+            background: #f8f9fa;
+        }
+
+        .diferencial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .diferencial-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .diferencial-item:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .diferencial-item h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .diferencial-item:hover h3 {
+            color: white;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 2px 2px 30px rgba(0,0,0,0.4);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 2rem;
+            text-align: center;
+        }
+
+        .contact-info {
+            max-width: 800px;
+            margin: 2rem auto;
+            font-size: 1.2rem;
+        }
+
+        .footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        .circuit-animation {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            opacity: 0.1;
+        }
+
+        .circuit-line {
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 3s ease-in-out infinite;
+        }
+
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                ⚡ RR Engenharia Elétrica
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#diferenciais">Diferenciais</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <svg class="circuit-animation" viewBox="0 0 200 200">
+            <path class="circuit-line" d="M20,100 L80,100 L80,40 L120,40 L120,100 L180,100 M100,40 L100,20 M140,100 L140,80 M60,100 L60,120"/>
+        </svg>
+        <h1>RR Engenharia Elétrica LTDA</h1>
+        <p>Excelência em Soluções Elétricas com Segurança e Conformidade Total</p>
+        <a href="#contato" class="cta-button">Solicite um Orçamento</a>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">📋</div>
+                <h3>Projetos Elétricos Completos</h3>
+                <p>Desenvolvemos projetos elétricos residenciais, comerciais e industriais com eficiência energética e segurança máxima, sempre em conformidade com as normas técnicas vigentes.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>SPDA (Sistema de Proteção contra Descargas Atmosféricas)</h3>
+                <p>Garantimos proteção total contra raios com projetos e instalações de SPDA em estrita conformidade com a NBR 5419, protegendo vidas e patrimônio.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📄</div>
+                <h3>Laudos Técnicos</h3>
+                <p>Emissão de laudos técnicos e ART (Anotação de Responsabilidade Técnica) para instalações elétricas, garantindo conformidade legal e segurança operacional.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔧</div>
+                <h3>Manutenção Preditiva</h3>
+                <p>Prevenimos falhas antes que elas aconteçam através de manutenções programadas e inspeções termográficas, aumentando a vida útil dos seus equipamentos.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🏗️</div>
+                <h3>Instalações Elétricas</h3>
+                <p>Execução completa de instalações elétricas de baixa e média tensão, com materiais de primeira qualidade e equipe especializada.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔌</div>
+                <h3>Adequação às Normas</h3>
+                <p>Regularização e adequação de instalações elétricas existentes às normas NBR 5410, NR-10 e demais regulamentações técnicas aplicáveis.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💡</div>
+                <h3>Eficiência Energética</h3>
+                <p>Projetos de otimização energética para redução de custos operacionais, incluindo análise de consumo e implementação de soluções sustentáveis.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔍</div>
+                <h3>Inspeções e Diagnósticos</h3>
+                <p>Inspeções detalhadas de instalações elétricas, termografia, medições e ensaios para identificar problemas e propor soluções eficazes.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🏭</div>
+                <h3>Automação Industrial</h3>
+                <p>Projetos e implementação de sistemas de automação para otimizar processos industriais, aumentando produtividade e segurança.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Conformidade com NBRs</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Suporte Técnico</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">+500</div>
+                <div class="stat-label">Projetos Realizados</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Anos de Experiência</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="diferenciais" class="section diferencial">
+        <h2 class="section-title">Nossos Diferenciais</h2>
+        <div class="diferencial-grid">
+            <div class="diferencial-item">
+                <h3>✓ Conformidade Total</h3>
+                <p>Garantimos que todos os projetos e laudos (SPDA, Laudos Técnicos) estejam em estrita conformidade com as NBRs, protegendo vidas e o patrimônio de sua empresa contra riscos elétricos.</p>
+            </div>
+
+            <div class="diferencial-item">
+                <h3>🔗 Linhas de Circuito/Conexão</h3>
+                <p>Trabalhamos com as mais modernas tecnologias de conexão e distribuição elétrica, garantindo eficiência máxima e segurança em toda a instalação.</p>
+            </div>
+
+            <div class="diferencial-item">
+                <h3>🤝 Parceria de Longo Prazo</h3>
+                <p>Não entregamos apenas projetos; construímos relacionamentos. Nossa manutenção preditiva e suporte técnico garantem que seu sistema opere com confiabilidade máxima por décadas.</p>
+            </div>
+
+            <div class="diferencial-item">
+                <h3>👷 Equipe Especializada</h3>
+                <p>Engenheiros e técnicos altamente qualificados, com certificações e treinamentos constantes nas melhores práticas do setor elétrico.</p>
+            </div>
+
+            <div class="diferencial-item">
+                <h3>⏱️ Agilidade e Pontualidade</h3>
+                <p>Cumprimos rigorosamente os prazos estabelecidos, sem comprometer a qualidade técnica e a segurança dos projetos executados.</p>
+            </div>
+
+            <div class="diferencial-item">
+                <h3>💰 Melhor Custo-Benefício</h3>
+                <p>Investimento inteligente com soluções duráveis que reduzem custos operacionais e evitam despesas futuras com manutenções corretivas.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contact-section">
+        <h2 class="section-title" style="color: white;">Entre em Contato</h2>
+        <div class="contact-info">
+            <p>Estamos prontos para atender suas necessidades em engenharia elétrica com excelência e compromisso.</p>
+            <p style="margin-top: 2rem; font-size: 1.4rem;">
+                <strong>📱 WhatsApp: (24) 99930-7705</strong>
+            </p>
+            <p style="margin-top: 1rem;">
+                Solicite um orçamento sem compromisso e descubra como podemos transformar a infraestrutura elétrica do seu negócio!
+            </p>
+        </div>
+        <a href="https://wa.me/5524999307705?text=Olá! Gostaria de solicitar um orçamento para serviços de engenharia elétrica." class="cta-button" target="_blank" style="margin-top: 2rem;">
+            Falar no WhatsApp
+        </a>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 RR Engenharia Elétrica LTDA. Todos os direitos reservados.</p>
+        <p style="margin-top: 0.5rem;">Excelência em Soluções Elétricas | Segurança | Conformidade | Confiabilidade</p>
+    </footer>
+
+    <a href="https://wa.me/5524999307705?text=Olá! Gostaria de solicitar um orçamento para serviços de engenharia elétrica." class="whatsapp-float" target="_blank">
+        <svg viewBox="0 0 32 32" width="30" height="30" fill="white">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 8.188-2.113c2.324 1.197 4.938 1.813 7.688 1.813 8.837 0 16-7.163 16-16s-7.163-16-15.876-16zM16 29.25c-2.475 0-4.887-0.675-7.025-1.95l-0.5-0.3-5.175 1.338 1.387-5.163-0.325-0.525c-1.396-2.225-2.137-4.8-2.137-7.438 0-7.8 6.35-14.15 14.15-14.15s14.15 6.35 14.15 14.15-6.35 14.15-14.525 14.038zM22.4 18.575c-0.387-0.2-2.3-1.137-2.663-1.263-0.362-0.137-0.625-0.2-0.888 0.2s-1.025 1.263-1.25 1.525c-0.238 0.263-0.463 0.3-0.85 0.1s-1.663-0.612-3.163-1.95c-1.175-1.038-1.963-2.325-2.188-2.713-0.238-0.387-0.025-0.6 0.175-0.788 0.175-0.175 0.387-0.462 0.587-0.688 0.2-0.237 0.263-0.4 0.4-0.662 0.137-0.263 0.063-0.5-0.038-0.7-0.1-0.2-0.888-2.137-1.213-2.925-0.325-0.775-0.65-0.663-0.888-0.675-0.225-0.012-0.487-0.012-0.75-0.012s-0.688 0.1-1.05 0.5c-0.362 0.4-1.387 1.35-1.387 3.3s1.413 3.825 1.613 4.088c0.2 0.262 2.8 4.275 6.787 5.987 0.95 0.413 1.688 0.65 2.263 0.838 0.95 0.3 1.813 0.262 2.5 0.162 0.762-0.112 2.3-0.95 2.625-1.863 0.325-0.912 0.325-1.7 0.225-1.863-0.1-0.175-0.362-0.275-0.75-0.475z"/>
+        </svg>
+    </a>
+</body>
+</html>
